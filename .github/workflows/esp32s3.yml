@@ -91,4 +91,25 @@ jobs:
         with:
           name:  Archive microlite-esp32-s3-spiram-octal-firmware
           path: |
-            boards/esp32/MICROLITE_S3_SPIRAM_OCTAL/build/firmware.bin    
+            boards/esp32/MICROLITE_S3_SPIRAM_OCTAL/build/firmware.bin
+            
+      - name: Build ESP32 S3 psram support and 16MB Flash firmware - OCTAL SPIRAM
+        run: |
+          
+          source ./esp-idf/export.sh
+          
+          echo "cd ./boards/esp32/MICROLITE_S3_SPIRAM_OCTAL_16"
+          cd ./boards/esp32/MICROLITE_S3_SPIRAM_OCTAL_16
+          
+          echo "Building ESP32-MICROLITE_S3_SPIRAM_OCTAL_16"
+          rm -rf builds
+          idf.py clean build
+          ../../../micropython-modules/microlite/assemble-unified-image-esp.sh \
+          ../../../micropython/ports/esp32
+      - name: Archive ESP32-MICROLITE_S3_SPIRAM_OCTAL_16 firmware
+        uses: actions/upload-artifact@v2
+        with:
+          name:  Archive microlite-esp32-s3-spiram-octal-firmware
+          path: |
+            boards/esp32/MICROLITE_S3_SPIRAM_OCTAL_16/build/firmware.bin
+            
