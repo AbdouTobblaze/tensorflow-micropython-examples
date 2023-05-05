@@ -110,7 +110,7 @@ jobs:
       - name: Archive ESP32-MICROLITE_S3_SPIRAM_OCTAL_16 firmware
         uses: actions/upload-artifact@v2
         with:
-          name:  Archive microlite-esp32-s3-spiram-octal-firmware
+          name:  Archive microlite-esp32-s3-spiram-octal-16-firmware
           path: |
             boards/esp32/MICROLITE_S3_SPIRAM_OCTAL_16/build/firmware.bin
             
